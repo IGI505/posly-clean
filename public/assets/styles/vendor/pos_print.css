@@ -1,0 +1,124 @@
+/* General Styles */
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 10px; /* Smaller font size for compactness */
+    line-height: 1.2;
+}
+
+#invoice-POS {
+    width: 90mm; /* Adjusted for a smaller width */
+    margin: 0 auto;
+    padding: 5mm;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2mm;
+}
+
+.header img {
+    max-width: 40mm; /* Smaller logo */
+    height: auto;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 12px; /* Smaller title font size */
+}
+
+/* Invoice Details */
+.invoice-details p {
+    margin: 2px 0;
+    font-size: 10px; /* Smaller font size for details */
+    text-align: left;
+}
+
+/* Item Table */
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5mm;
+}
+
+.item-table th, .item-table td {
+    padding: 2mm; /* Reduced padding */
+    font-size: 10px; /* Smaller font size for table */
+    border-bottom: 1px solid #ddd;
+}
+
+.item-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Summary */
+.summary {
+    margin-top: 5mm;
+}
+
+.summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.summary th, .summary td {
+    padding: 2mm; /* Reduced padding */
+    font-size: 10px; /* Smaller font size for summary table */
+    border-bottom: 1px solid #ddd;
+}
+
+.summary th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 8px; /* Smaller font size for footer */
+    margin-top: 5mm;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #invoice-POS {
+        width: 60mm; /* Adjusted for a smaller paper width */
+        padding: 3mm;
+    }
+
+    .header img {
+        max-width: 30mm; /* Further reduce logo size for printing */
+    }
+
+    .header h1 {
+        font-size: 10px; /* Smaller title font size for print */
+    }
+
+    .invoice-details p, .item-table th, .item-table td, .summary th, .summary td, .footer {
+        font-size: 9px; /* Smaller font size for print */
+    }
+
+    td, th {
+        padding: 1mm;
+    }
+
+    @page {
+        size: 60mm auto; /* Smaller page size */
+        margin: 0;
+    }
+}
