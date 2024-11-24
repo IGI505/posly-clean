@@ -63,6 +63,10 @@ class ComposerStaticInit066e7a848b8fe9e5f1a93285f0fe79b3
         array (
             'voku\\' => 5,
         ),
+        'l' => 
+        array (
+            'lepiaf\\SerialPort\\' => 18,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -238,6 +242,10 @@ class ComposerStaticInit066e7a848b8fe9e5f1a93285f0fe79b3
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'lepiaf\\SerialPort\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort',
         ),
         'ZipStream\\' => 
         array (
@@ -10753,6 +10761,19 @@ class ComposerStaticInit066e7a848b8fe9e5f1a93285f0fe79b3
         'ZipStream\\Zip64\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zip64/ExtendedInformationExtraField.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
         'ZipStream\\Zs\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zs/ExtendedInformationExtraField.php',
+        'lepiaf\\SerialPort\\Configure\\ConfigureInterface' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Configure/ConfigureInterface.php',
+        'lepiaf\\SerialPort\\Configure\\ModeConfigure' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Configure/ModeConfigure.php',
+        'lepiaf\\SerialPort\\Configure\\TTYConfigure' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Configure/TTYConfigure.php',
+        'lepiaf\\SerialPort\\Configure\\TTYMacConfigure' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Configure/TTYMacConfigure.php',
+        'lepiaf\\SerialPort\\Exception\\DeviceNotAvailable' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/DeviceNotAvailable.php',
+        'lepiaf\\SerialPort\\Exception\\DeviceNotFound' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/DeviceNotFound.php',
+        'lepiaf\\SerialPort\\Exception\\DeviceNotOpened' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/DeviceNotOpened.php',
+        'lepiaf\\SerialPort\\Exception\\LogicException' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/LogicException.php',
+        'lepiaf\\SerialPort\\Exception\\RuntimeException' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/RuntimeException.php',
+        'lepiaf\\SerialPort\\Exception\\WriteNotAllowed' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Exception/WriteNotAllowed.php',
+        'lepiaf\\SerialPort\\Parser\\ParserInterface' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Parser/ParserInterface.php',
+        'lepiaf\\SerialPort\\Parser\\SeparatorParser' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/Parser/SeparatorParser.php',
+        'lepiaf\\SerialPort\\SerialPort' => __DIR__ . '/..' . '/lepiaf/serialport/src/lepiaf/SerialPort/SerialPort.php',
         'smsMessagesSeeder' => __DIR__ . '/../..' . '/database/seeds/smsMessagesSeeder.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );

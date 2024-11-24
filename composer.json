@@ -17,6 +17,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
+        "lepiaf/serialport": "^1.1",
         "maatwebsite/excel": "^3.1",
         "mike42/escpos-php": "^4.0",
         "nexmo/laravel": "^2.4",

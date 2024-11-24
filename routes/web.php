@@ -27,6 +27,12 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
+//test desplay
+Route::get('/test', function () {
+    $customerDisplay = new App\Services\CustomerDisplayService();
+    $customerDisplay->setIndicatorLight('total');
+    $customerDisplay->sendText(number_format(12.33, 2));
+});
 
 $installed = Storage::disk('public')->exists('installed');
 
