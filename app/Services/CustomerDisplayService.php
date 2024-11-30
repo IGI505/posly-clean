@@ -7,7 +7,7 @@ class CustomerDisplayService
     protected $serialPort;
     protected $port;
 
-    public function __construct($port = '/dev/ttyS0')
+    public function __construct($port = 'COM1')
     {
         $this->port = $port;
         $this->serialPort = fopen($port, 'w+');

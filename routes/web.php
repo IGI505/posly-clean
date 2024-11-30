@@ -29,9 +29,24 @@ use Illuminate\Support\Facades\Artisan;
 
 //test desplay
 Route::get('/test', function () {
-    $customerDisplay = new App\Services\CustomerDisplayService();
-    $customerDisplay->setIndicatorLight('total');
-    $customerDisplay->sendText(number_format(12.33, 2));
+
+    $serial = new phpSerial;
+
+
+    $serial->deviceSet("COM1"); // عدل هذا حسب نظامك
+    $serial->confBaudRate(2400);
+    $serial->confParity("none");
+    $serial->confCharacterLength(8);
+    $serial->confStopBits(1);
+    $serial->deviceOpen();
+
+    // بناء السلسلة كما في السابق
+    $s = chr(27) . chr(115) . chr(50); // Total
+    $s .= chr(27) . chr(81) . chr(65) . trim("123.45") . chr(13);
+
+    $serial->sendMessage($s);
+
+    $serial->deviceClose();
 });
 
 $installed = Storage::disk('public')->exists('installed');

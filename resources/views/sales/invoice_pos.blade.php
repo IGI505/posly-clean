@@ -1,13 +1,9 @@
-<?php
-$languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar' ? 'rtl' : 'ltr';
-?>
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="{{ $languageDirection }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{asset('/assets/js/vue.js')}}"></script>
+    <script src="{{ asset('/assets/js/vue.js') }}"></script>
 
     <title>Invoice #{{ $sale['Ref'] }}</title>
     <style>
@@ -16,46 +12,45 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            font-size: 12px; /* Slightly larger font for readability */
+            font-size: 12px;
             direction: {{ $languageDirection }};
         }
         .container {
-            width: 80mm; /* Adjust to match your POS paper width */
+            width: 80mm;
             margin: 0 auto;
-            padding: 5mm;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0;
         }
         .header, .invoice-details, .summary {
             margin-bottom: 5mm;
         }
         .header {
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #000;
             padding-bottom: 2mm;
         }
         .header img {
-            max-width: 60mm; /* Adjust logo size */
+            max-width: 100%;
+            height: auto;
         }
         .header h1 {
             margin: 0;
-            font-size: 16px; /* Larger font for the title */
+            font-size: 14px;
         }
         .invoice-details p {
-            margin: 4px 0;
-            font-size: 12px; /* Larger font for invoice details */
+            margin: 2mm 0;
+            font-size: 11px;
             text-align: {{ $languageDirection == 'rtl' ? 'right' : 'left' }};
         }
         .item-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 5mm;
+            font-size: 11px;
         }
         .item-table th, .item-table td {
-            padding: 3mm;
+            padding: 2mm;
             text-align: {{ $languageDirection == 'rtl' ? 'right' : 'left' }};
-            border-bottom: 1px solid #ddd;
-            font-size: 12px; /* Larger font for item table */
+            border-bottom: 1px solid #000;
         }
         .item-table th {
             background-color: #f4f4f4;
@@ -64,58 +59,41 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
         .summary table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px; /* Larger font for summary table */
+            font-size: 11px;
         }
         .summary th, .summary td {
-            padding: 3mm;
+            padding: 2mm;
             text-align: {{ $languageDirection == 'rtl' ? 'right' : 'left' }};
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #000;
         }
         .summary th {
-            background-color: #f4f4f4;
             font-weight: bold;
         }
         .footer {
             text-align: center;
-            font-size: 10px; /* Slightly larger font for footer */
+            font-size: 10px;
             margin-top: 10mm;
         }
-        .btn {
-            padding: 5px 10px;
-            font-size: 12px;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .hidden-print {
-            display: block;
-            margin-bottom: 10mm;
-        }
-
         @media print {
-            .hidden-print {
-                display: none;
-            }
             body {
                 margin: 0;
                 padding: 0;
-                width: 80mm;
+            }
+            .hidden-print {
+                display: none;
             }
             .container {
-                width: 80mm;
+                width: 100%;
+                margin: 0 auto;
                 padding: 0;
+                page-break-inside: avoid;
+            }
+            .header, .invoice-details, .summary {
+                margin-bottom: 3mm;
             }
             .item-table th, .item-table td {
                 font-size: 10px;
-            }
-            .footer {
-                font-size: 8px;
+                border-bottom: 1px solid #000;
             }
         }
     </style>
@@ -151,7 +129,6 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
     <table class="item-table">
         <thead>
         <tr>
-{{--            <th>{{ __('translate.Code') }}</th>--}}
             <th>{{ __('translate.Description') }}</th>
             <th>{{ __('translate.Qty') }}</th>
             <th>{{ __('translate.Price') }}</th>
@@ -161,7 +138,6 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
         <tbody>
         @foreach($details as $detail)
             <tr>
-{{--                <td>{{ $detail['code'] }}</td>--}}
                 <td>{{ $detail['name'] }}</td>
                 <td>{{ $detail['quantity'] }}</td>
                 <td>{{ $detail['price'] }}</td>
@@ -191,18 +167,6 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
                 <th>{{ __('translate.Tax') }} ({{ $sale['tax_rate'] }}%)</th>
                 <td>{{ $sale['taxe'] }}</td>
             </tr>
-{{--            <tr>--}}
-{{--                <th>{{ __('translate.Grand_Total') }}</th>--}}
-{{--                <td>{{ $sale['GrandTotal'] }}</td>--}}
-{{--            </tr>--}}
-{{--            <tr>--}}
-{{--                <th>{{ __('translate.Paid_Amount') }}</th>--}}
-{{--                <td>{{ $sale['paid_amount'] }}</td>--}}
-{{--            </tr>--}}
-{{--            <tr>--}}
-{{--                <th>{{ __('translate.Due_Amount') }}</th>--}}
-{{--                <td>{{ $sale['due'] }}</td>--}}
-{{--            </tr>--}}
             </tbody>
         </table>
     </div>
@@ -243,7 +207,6 @@ $languageDirection = isset($_COOKIE['language']) && $_COOKIE['language'] == 'ar'
             print_pos() {
                 var divContents = document.getElementById("invoice-POS").innerHTML;
                 var a = window.open("", "", "height=500, width=500");
-                // a.document.write('<link rel="stylesheet" href="/assets/styles/vendor/pos_print.css"><html>');
                 a.document.write("<body>");
                 a.document.write(divContents);
                 a.document.write("</body></html>");
